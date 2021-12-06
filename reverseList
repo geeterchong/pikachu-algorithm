@@ -1,0 +1,14 @@
+// 反转链表核心思路描述: 遍历链表，将当前节点的指针指向前一个节点。
+// 因为没有前一个节点,所以必须事先保留一个prev
+
+public void reverseList(ListNode prev){
+    ListNode prev = null;
+    ListNode curr = head;
+    while(curr != null){
+        ListNode next = curr.next;
+        curr.next = prev;
+        prev = curr;
+        curr = next;
+    }
+    return prev;
+}
