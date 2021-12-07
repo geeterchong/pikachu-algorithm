@@ -1,0 +1,14 @@
+/**
+ * 核心思路描述: maxdepth=max(l,r)+1
+ * 递归计算左子树、右子树的值
+ * 递归终止条件: 访问到空节点
+ */
+
+public int maxDepth(TreeNode root){
+    if(root == null){
+        return 0;
+    }
+    int leftHight = maxDepth(root.left);
+    int rightHight = maxDepth(root.right);
+    return Math.max(leftHight,rightHight) + 1;
+}
