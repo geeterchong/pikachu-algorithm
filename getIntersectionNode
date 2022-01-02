@@ -1,3 +1,30 @@
+
+  /**
+   * 核心思路,遍历链表A，存储后遍历链表B，判断是否存在
+   */
+   public ListNode getIntersectionNode(ListNode headA, ListNode headB){
+       Set<ListNode> visited = new HashSet();
+       ListNode temp = headA;
+       while(temp != null){
+           visited.add(temp);
+           temp = temp.text;
+       }
+       temp = headB;
+       while(head != null){
+           if(visited.contains(temp)){
+               return temp;
+           }
+           temp = temp.text;
+       }
+       return null;
+   }
+
+
+
+
+
+
+
 /* 
  * 思路: 双指针法
  */
