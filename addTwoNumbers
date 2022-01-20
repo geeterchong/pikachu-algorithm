@@ -1,0 +1,25 @@
+public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dummyHead = new ListNode(0);
+        ListNode curr = dummyHead;
+        // 进位
+        int carry = 0;
+        while (l1 != null || l2 != null) {
+            int n1 = l1 != null ? l1.getVal() : 0;
+            int n2 = l2 != null ? l2.getVal() : 0;
+            int sum = n1 + n2 + carry;
+            // 更新carry的值
+            carry = sum / 10;
+            curr.setNext(new ListNode(sum % 10));
+            curr = curr.getNext();
+            if (l1 != null) {
+                l1 = l1.getNext();
+            }
+            if (l2 != null) {
+                l2 = l2.getNext();
+            }
+        }
+        if (carry != 0) {
+            curr.setNext(new ListNode(carry));
+        }
+        return dummyHead.getNext();
+    }
