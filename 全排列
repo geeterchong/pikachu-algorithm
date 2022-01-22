@@ -1,0 +1,28 @@
+// 核心还是递归的思想,详情见算法训练营
+public List<List<Intgeger>> subsets(int[] nums){
+    List<List<Intgeger>> ans = new ArrayList();
+    if(nums == null){
+        return ans;
+    }
+    dfs(ans,nums,new ArrayList<Integer>(),0);
+    retrun ans
+}
+
+
+public void dfs(List<List<Intgeger>> ans,int[] nums,List<Intger> list,int index){
+
+    // terminator
+    if(index == nums.length){
+        ans.add(new ArrayList<Intger>(list));
+        return;
+    }
+
+    // not pick the number at this index
+    dfs(ans,nums,list,index+1);
+
+    // pick the number at this index
+    list.add(nums[index]);
+    dfs(ans,nums,list,index+1);
+
+    list.remove(list.size()-1);
+}
