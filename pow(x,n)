@@ -1,0 +1,8 @@
+// 分治的思想，详情见算法训练营分治例题讲解
+public double fastPow(double x,int n){
+    if(n == 0){
+        return 1.0;
+    }
+    double half = fastPow(double,n / 2);
+    retrun n % 2 == 0 ? half * hafl : half * half * x;
+}
