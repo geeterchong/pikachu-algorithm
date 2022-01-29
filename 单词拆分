@@ -1,0 +1,21 @@
+class Solution {
+    public boolean wordBreak(String s, List<String> wordDict) {
+        int n = s.length();
+        //memo[i] 表示i-1之前的字符串都识别成功
+        boolean[] memo = new boolean[n+1];
+        //初始化
+        memo[0]=true;
+        //逐个字符推进
+        for(int i=1;i<=n;i++){
+            for(int j=0;j<i;j++){
+                //若memo[j]==true，则可以作为起点，判断是否能继续完成单词拆分。
+                if(memo[j]&&wordDict.contains(s.substring(j,i))){
+                    memo[i]=true;
+                    //当前的memo成功了，则向前扫描
+                    break;
+                }
+            }
+        }
+        return memo[n];
+    }
+}
