@@ -1,3 +1,17 @@
+// 前缀和的这个题
+
+pre[i] = pre[i-1] + nums[i];
+
+pre[i] - pre[j] = nums[j+1] + ...nums[i];
+
+[i,j]的子数组和为k
+即
+pre[i] - pre[j-1] = k;
+
+
+所以最后只需要统计有多少个前缀和为
+pre[i] - K的子数组即可
+
 public class Solution {
     public int subarraySum(int[] nums, int k) {
         int count = 0, pre = 0;
